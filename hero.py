@@ -1,3 +1,4 @@
+from os import name
 import random
 
 class Hero:
@@ -5,6 +6,21 @@ class Hero:
         self.name = name
         self.starting_health = starting_health
         self.current_health = starting_health
+
+    def add_ability(self, Ability):
+        pass
+
+    def attack(self):
+        pass
+
+    def defend(self, incoming_damage):
+        pass
+
+    def take_damage(self, damage):
+        pass
+
+    def is_alive(self):
+        pass
 
     def fight(self, opponent):
         heros = [self.name, opponent.name]
