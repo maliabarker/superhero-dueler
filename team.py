@@ -46,13 +46,15 @@ class Team:
                 living_heros.remove(self_fighter)
                 living_opponents.remove(other_fighter)
 
-        pass
-
     def revive_heroes(self):
         for hero in self.heroes:
             hero.current_health = hero.starting_health
 
     def stats(self):
         for hero in self.heroes:
-            kd = hero.kills / hero.deaths
-            print(f'{hero.name} Kills/Deaths:{kd}')
+            print(f'{hero.name} Kills/Deaths {hero.kills}:{hero.deaths}')
+            # if hero.deaths == 0:
+            #     print(f'{hero.name} Kills/Deaths:{hero.kills}:0')
+            # else:
+            #     kd = hero.kills / hero.deaths
+            #     print(f'{hero.name} Kills/Deaths:{kd}')
