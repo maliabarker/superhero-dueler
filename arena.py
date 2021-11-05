@@ -11,19 +11,19 @@ class Arena:
 
     def create_ability(self):
         name = input('What is the ability name? >')
-        max_damage = input('What is the max damage of this ability? >')
+        max_damage = int(input('What is the max damage of this ability? >'))
 
         return Ability(name, max_damage)
 
     def create_weapon(self):
         name = input('What is the weapon name? >')
-        max_damage = input('What is the max damage of this weapon? >')
+        max_damage = int(input('What is the max damage of this weapon? >'))
 
         return Weapon(name, max_damage)
 
     def create_armor(self):
         name = input('What is the armor name? >')
-        max_block = input('What is the max block this armor has? >')
+        max_block = int(input('What is the max block this armor has? >'))
 
         return Armor(name, max_block)
 
