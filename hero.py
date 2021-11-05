@@ -1,6 +1,7 @@
 from os import name
 from ability import Ability
 from armor import Armor
+from weapon import Weapon
 import random
 
 class Hero:
@@ -14,6 +15,9 @@ class Hero:
 
     def add_ability(self, ability):
         self.abilities.append(ability)
+
+    def add_weapon(self, weapon):
+        self.abilities.append(weapon)
 
     def attack(self):
         total_damage = 0
@@ -120,3 +124,8 @@ if __name__ == "__main__":
   hero2.add_ability(ability3)
   hero2.add_ability(ability4)
   print(hero1.fight(hero2))
+
+  hero = Hero("Wonder Woman")
+  weapon = Weapon("Lasso of Truth", 90)
+  hero.add_weapon(weapon)
+  print(hero.attack())
