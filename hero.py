@@ -12,6 +12,8 @@ class Hero:
         self.name = name
         self.starting_health = starting_health
         self.current_health = starting_health
+        self.kills = 0
+        self.deaths = 0
 
     def add_ability(self, ability):
         self.abilities.append(ability)
@@ -50,6 +52,12 @@ class Hero:
         else:
             return True
 
+    def add_kill(self, num_kills):
+        self.kills += num_kills
+
+    def add_death(self, num_deaths):
+        self.deaths += num_deaths
+
     def fight(self, opponent):
         
         if len(self.abilities) == 0 and len(opponent.abilities) == 0:
@@ -60,10 +68,18 @@ class Hero:
                 print(opponent.take_damage(self.attack()))
                 print(self.take_damage(opponent.attack()))
                 if self.is_alive() == True and opponent.is_alive() == False:
+                    self.add_kill(1)
+                    opponent.add_death(1)
                     return f'{self.name} defeated {opponent.name}!'
                 elif opponent.is_alive() == True and self.is_alive() == False:
+                    opponent.add_kill(1)
+                    self.add_death(1)
                     return f'{opponent.name} defeated {self.name}!'
                 elif self.is_alive() == False and opponent.is_alive() == False:
+                    self.add_kill(1)
+                    self.add_death(1)
+                    opponent.add_kill(1)
+                    opponent.add_death(1)
                     return f'{self.name} and {opponent.name} defeated eachother. Draw!'
                 else:
                     continue
